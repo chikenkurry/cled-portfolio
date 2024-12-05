@@ -168,6 +168,7 @@ export default function Homepage() {
           autoPlay
           loop
           muted
+          playsInline
           style={{
             position: "absolute",
             top: 0,
