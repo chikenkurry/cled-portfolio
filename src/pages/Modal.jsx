@@ -48,6 +48,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 1000,
   },
   modal: {
     position: 'relative',

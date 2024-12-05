@@ -33,6 +33,7 @@ export default function Homepage() {
   const handleCardClick = (text, image) => {
     setModalContent({ text, image });
     setIsModalOpen(true);
+    console.log("clicked");
   };
 
   const containerVariants = {
@@ -176,6 +177,7 @@ export default function Homepage() {
             objectFit: "cover",
             zIndex: -1,
             filter: "brightness(0.8)",
+            pointerEvents: "none"
           }}
         >
           <source src="./vid1.mp4" type="video/mp4" />
@@ -388,6 +390,7 @@ export default function Homepage() {
         style={{
           scrollMarginTop: "30px",
           position: "relative",
+          
         }}
       >
         <div class="stars">
@@ -447,38 +450,30 @@ export default function Homepage() {
             width: "100%",
             textAlign: "center",
             paddingBottom:"30px",
-            
+            paddingTop:"30px"
           }}
         >
           <h1 style={styles.specialText3}>Education</h1>
         </div>
         <div
           className="edu-container"
-          style={{ minWidth: "400px", display: "flex", flexWrap:"wrap", padding:"5%", color:"white" }}
+          style={{ minWidth: "400px", display: "flex", flexWrap:"wrap", padding:"5%", color:"white", justifyContent:"space-between",zIndex:"1"}}
         >
-          <div style={{width:"100%", height:"30%", display:"flex", alignItems:"center"}} onClick={() =>
-                handleCardClick(
-                  "Clubs and Societies: Member of EYE Investment and SMU Paw club. \n ",
-                  "./scis1.JPG"
-                )
-              }>
-            <div style={{width:"10%", minWidth:"100px"}}>
+          <div style={{width:"40%",minWidth:"370px", display:"flex", alignItems:"center"}} >
+            <div style={{width:"40%", minWidth:"100px"}}>
               <img src="./scis.png" style={{width:"100%", minWidth:"100px", borderRadius:"150px"}} />
             </div>
             <div style={{width:"90%", marginLeft:"5%"}}>
               <h3>Singapore Management University</h3>
               <h5>Computer Science (AI) </h5>
               <h6>Aug 2023 - Jun 2027</h6>
+              <a href="youtube.com"> hi</a>
+               
             </div>
           </div>
-          <div style={{width:"100%", height:"30%", display:"flex", alignItems:"center", marginTop:"20px"}} onClick={() =>
-                handleCardClick(
-                  "Subject taken: H2 Chem, H2 Math, H2 Econs, H1 Hist\n Awards: Principal`s Honour for Promos and MYE",
-                  "./cjc1.jpg"
-                )
-              }>
-            <div style={{width:"10%", minWidth:"100px"}}>
-              <img src="./CJC.png" style={{width:"100%", minWidth:"100px", borderRadius:"150px"}} />
+          <div style={{width:"40%",minWidth:"370px", display:"flex", alignItems:"center"}} >
+            <div style={{width:"40%", minWidth:"100px"}}>
+              <img src="./CJC.png" style={{width:"90%", minWidth:"100px", borderRadius:"150px"}} />
             </div>
             <div style={{width:"90%", marginLeft:"5%"}}>
               <h3>Catholic Junior College</h3>
@@ -486,13 +481,8 @@ export default function Homepage() {
                 <h6>Jan 2019 - Dec 2020</h6>
             </div>
           </div>
-          <div style={{width:"100%", height:"30%", display:"flex", alignItems:"center", marginTop:"20px"}} onClick={() =>
-                handleCardClick(
-                  "Subject taken: H2 Chem, H2 Math, H2 Econs, H1 Hist\n Awards: Principal`s Honour for Promos and MYE",
-                  "./cjc1.jpg"
-                )
-              }>
-            <div style={{width:"10%", minWidth:"100px"}}>
+          <div style={{width:"40%",minWidth:"370px", display:"flex", alignItems:"center"}} >
+            <div style={{width:"40%", minWidth:"100px"}}>
               <img src="./manjuju.png" style={{width:"100%", minWidth:"100px", borderRadius:"150px"}} />
             </div>
             <div style={{width:"90%", marginLeft:"5%"}}>
@@ -696,10 +686,15 @@ export default function Homepage() {
         
       </section>
       <Modal
+        
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         content={modalContent}
       />
+       <footer className="footer" style={{textAlign:"center",height:"100px"}}>
+		<p>&copy; 2024 Cledwyn. All rights reserved.</p>
+		</footer>
+
     </div>
   );
 }

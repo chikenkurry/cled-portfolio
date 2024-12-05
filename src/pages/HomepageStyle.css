@@ -172,7 +172,6 @@
   @media (max-width: 1000px) {
     .edu-section-container {
       height: auto; /* Override for mobile */
-      
     }
   }
 
@@ -660,7 +659,7 @@
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
-  margin-top: 2%;
+
   height: 100vh;
   scroll-Margin-Top: 20px;
   padding-left:10%;
