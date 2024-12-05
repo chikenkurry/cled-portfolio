@@ -5,7 +5,7 @@ function App() {
   
 
   return (
-    <Router basename="/cled-portfolio">
+    <Router>
       <Routes>
         <Route path="/" element={
           <>
