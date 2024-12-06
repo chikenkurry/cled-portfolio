@@ -1,22 +1,27 @@
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView, useAnimation, AnimatePresence  } from "framer-motion";
 import "../pages/HomepageStyle.css";
 import Modal from "../pages/Modal.jsx";
-
 import video3 from "/me11.mp4";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 export default function Homepage() {
+  const controls = useAnimation();
+  const sectionRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({ text: "", image: "" });
   const [isInView, setIsInView] = useState(false);
-  const controls = useAnimation();
   const aboutRef = useRef(null);
   const workRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
-
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 }, // Initial state (fade-in from below)
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }, // Fade-in animation
+    exit: { opacity: 0, y: -50, transition: { duration: 0.5 } }, // Fade-out animation
+  };
+  
   const toggleMute = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
@@ -50,26 +55,54 @@ export default function Homepage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const textParentVariant = {
+    hidden: { opacity: 1 }, // Default visible, so children will stagger
+    visible: {
+      transition: {
+        staggerChildren: 0.5, // Time delay between each child animation
+      },
+    },
+  };
+  
+  const textChildVariant = {
+    hidden: { opacity: 0, y: 20 }, // Initial state: fade out and move down
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }, // Pop-up effect
+  };
+
+  const parentVariant = {
+    hidden: { opacity: 0 }, // Start hidden
+    visible: {
+      opacity: 1, // Fade in
+      transition: {
+        staggerChildren: 0.3, // Time delay between child animations
+      },
+    },
+  };
+  
+  const childVariant = {
+    hidden: { opacity: 0, y: 20 }, // Each card starts off invisible and moved down
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } }, // Fade in and move up
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsInView(entry.isIntersecting);
         if (entry.isIntersecting) {
           controls.start("visible");
         } else {
-          controls.start("hidden");
+          controls.start("hidden"); // Reset animation when leaving the viewport
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.5 } // Trigger when 50% of the section is visible
     );
 
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
     return () => {
-      if (aboutRef.current) {
-        observer.unobserve(aboutRef.current);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
     };
   }, [controls]);
@@ -87,6 +120,8 @@ export default function Homepage() {
       });
     });
 
+    
+
     return () => {
       cards.forEach((card) => {
         card.removeEventListener("touchstart", function () {
@@ -100,24 +135,31 @@ export default function Homepage() {
     };
   }, []);
 
+  
   return (
-    <div style={{ width: "100%", padding: 0, margin: 0, minWidth: "390px" }}>
-      <div className="section-container">
+    <div className="scroll-container" style={{ width: "100%", padding: 0, margin: 0, minWidth: "390px" }}>
+      <AnimatePresence>
+      <motion.section className="section-container scroll-section"  
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: false, amount: 0.5 }}>
         <div
           className="div-container"
           style={{ minWidth: "300px", display: "flex", alignItems: "center" }}
         >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
+            variants={textParentVariant}
+            initial="hidden"
+            animate="visible"          
           >
-            <h1 style={{ fontSize: "2.8rem" }}>Hello world, my name is</h1>
-            <h1 style={styles.specialText}>Cledwyn</h1>
-            <h1 style={{ fontSize: "1.8rem", paddingTop: "20px" }}>
+            <motion.h1 style={{ fontSize: "2.8rem" }}  variants={textChildVariant}>Hello world, my name is</motion.h1>
+            <motion.h1 style={styles.specialText} variants={textChildVariant} >Cledwyn</motion.h1>
+            <motion.h1 style={{ fontSize: "1.8rem", paddingTop: "20px" }}  variants={textChildVariant}>
               I am pursuing Computer Science (AI) with <br></br> a second major
               in Business Analytics
-            </h1>
+            </motion.h1>
           </motion.div>
         </div>
         <div
@@ -154,11 +196,16 @@ export default function Homepage() {
             }}
           />
         </div>
-      </div>
+      </motion.section>
 
-      <section
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: false, amount: 0.8 }}
         id="about"
-        className="section-container"
+        className="section-container scroll-section"
         style={{
           scrollMarginTop: "30px",
           position: "relative",
@@ -201,9 +248,11 @@ export default function Homepage() {
             style={{
               ...styles.containerCard1,
             }}
-            initial="hidden"
+            variants={parentVariant} // Apply parent variants
+            initial="hidden" // Parent initial state
+            animate="visible" // Parent animate state
           >
-            <motion.div className="card" style={styles.card}>
+            <motion.div className="card" style={{...styles.card}} variants={childVariant}>
               <div
                 className="card-body"
                 style={{ marginBottom: "50px", paddingTop: "40px" }}
@@ -227,7 +276,7 @@ export default function Homepage() {
                 </div>
               </div>
             </motion.div>
-            <motion.div className="card" style={styles.card}>
+            <motion.div className="card" style={styles.card} variants={childVariant}>
               <div
                 className="card-body"
                 style={{ marginBottom: "50px", paddingTop: "40px" }}
@@ -247,7 +296,7 @@ export default function Homepage() {
                 </div>
               </div>
             </motion.div>
-            <motion.div className="card" style={styles.card}>
+            <motion.div className="card" style={styles.card} variants={childVariant}>
               <div
                 className="card-body"
                 style={{ marginBottom: "50px", paddingTop: "40px" }}
@@ -278,11 +327,16 @@ export default function Homepage() {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: false, amount: 0.8 }}
         id="experience"
-        className="working-section-container animated-background"
+        className="working-section-container animated-background scroll-section"
         style={{
           scrollMarginTop: "30px",
           position: "relative",
@@ -378,11 +432,16 @@ export default function Homepage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: false, amount: 0.8 }}
         id="education"
-        className="edu-section-container animated-background-star"
+        className="edu-section-container animated-background-star scroll-section"
         style={{
           scrollMarginTop: "30px",
           position: "relative",
@@ -535,10 +594,16 @@ export default function Homepage() {
             </div>
           </div>
         </div>
-      </section>
-      <section
+      </motion.section>
+
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: false, amount: 0 }}
         id="skills"
-        className="skill-section-container"
+        className="skill-section-container scroll1-section"
         style={{
           scrollMarginTop: "30px",
           position: "relative",
@@ -845,11 +910,16 @@ export default function Homepage() {
           
           
         </div>
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: false, amount: 0.8 }}
         id="project"
-        className="project-section-container animated-black-background "
+        className="project-section-container animated-black-background scroll-section"
         ref={aboutRef}
       >
         <div
@@ -969,11 +1039,16 @@ export default function Homepage() {
           </div>
         
   
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: false, amount: 0.2 }}
         id="contact"
-        className="contact-section-container skyanimation"
+        className="contact-section-container skyanimation scroll1-section"
         ref={aboutRef}
       >
         <div
@@ -982,9 +1057,10 @@ export default function Homepage() {
             textAlign: "center",
             paddingTop: "5%",
             marginBottom: "50px",
+
           }}
         >
-          <h1 style={{ ...styles.specialText5 }}> Contact</h1>
+          <h1 style={{ ...styles.specialText4 }}> Contact</h1>
         </div>
         <div
           style={{
@@ -992,7 +1068,7 @@ export default function Homepage() {
             flexWrap: "wrap",
             width: "100%",
             minWidth: "400px",
-            padding: "5%",
+  
           }}
         >
           <div
@@ -1001,6 +1077,8 @@ export default function Homepage() {
               minWidth: "380px",
               display: "flex",
               alignItems: "center",
+              paddingBottom:"5%"
+            
             }}
           >
             <motion.div
@@ -1095,7 +1173,7 @@ export default function Homepage() {
           />
           </div>
         </div>
-      </section>
+      </motion.section>
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -1107,6 +1185,7 @@ export default function Homepage() {
       >
         <p>&copy; 2024 Cledwyn. All rights reserved.</p>
       </footer>
+      </AnimatePresence>
     </div>
   );
 }
