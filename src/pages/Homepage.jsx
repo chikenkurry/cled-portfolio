@@ -126,11 +126,7 @@ export default function Homepage() {
       <AnimatePresence>
       <motion.section className="section-container scroll-section" 
       
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        exit="exit"
-        viewport={{ once: false, amount: 0.5 }}>
+       >
         <div
           className="div-container"
           style={{ minWidth: "300px", display: "flex", alignItems: "center" }}
@@ -186,11 +182,7 @@ export default function Homepage() {
       </motion.section>
 
       <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        exit="exit"
-        viewport={{ once: false, amount: 0.8 }}
+       
         id="about"
         className="section-container scroll1-section"
         style={{
@@ -315,11 +307,7 @@ export default function Homepage() {
       </motion.section>
 
       <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        exit="exit"
-        viewport={{ once: false, amount: 0.8 }}
+        
         id="experience"
         className="working-section-container animated-background scroll-section"
         style={{
@@ -420,11 +408,7 @@ export default function Homepage() {
       </motion.section>
 
       <motion.section
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      exit="exit"
-      viewport={{ once: false, amount: 0.8 }}
+     
         id="education"
         className="edu-section-container animated-background-star scroll-section"
         style={{
@@ -582,11 +566,7 @@ export default function Homepage() {
       </motion.section>
 
       <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        exit="exit"
-        viewport={{ once: false, amount: 0 }}
+     
         id="skills"
         className="skill-section-container scroll1-section"
         style={{
@@ -898,13 +878,10 @@ export default function Homepage() {
       </motion.section>
 
       <motion.section
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      exit="exit"
+      
       viewport={{ once: false, amount: 0.8 }}
         id="project"
-        className="project-section-container animated-black-background scroll-section"
+        className="project-section-container animated-black-background scroll1-section"
         ref={aboutRef}
       >
         <div
@@ -1027,11 +1004,6 @@ export default function Homepage() {
       </motion.section>
 
       <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        exit="exit"
-        viewport={{ once: false, amount: 0.2 }}
         id="contact"
         className="contact-section-container skyanimation scroll1-section"
         ref={aboutRef}
