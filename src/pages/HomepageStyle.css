@@ -669,7 +669,7 @@
   width: 100%;
   flex-wrap: wrap;
 
-  height: 100vh;
+  height: auto;
   scroll-Margin-Top: 20px;
   padding-left:5%;
   padding-right:5%;

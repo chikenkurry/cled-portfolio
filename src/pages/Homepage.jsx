@@ -1071,7 +1071,7 @@ export default function Homepage() {
             ></motion.video> */}
             <motion.img
             src="./me22.jpeg"
-            className="img-fluid"
+            
             style={{
               width: "70%",
               minWidth:"400px",
