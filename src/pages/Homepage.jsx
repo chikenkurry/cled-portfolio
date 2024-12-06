@@ -69,21 +69,6 @@ export default function Homepage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }, // Pop-up effect
   };
 
-  const parentVariant = {
-    hidden: { opacity: 0 }, // Start hidden
-    visible: {
-      opacity: 1, // Fade in
-      transition: {
-        staggerChildren: 0.3, // Time delay between child animations
-      },
-    },
-  };
-  
-  const childVariant = {
-    hidden: { opacity: 0, y: 20 }, // Each card starts off invisible and moved down
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } }, // Fade in and move up
-  };
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -139,7 +124,8 @@ export default function Homepage() {
   return (
     <div className="scroll-container" style={{ width: "100%", padding: 0, margin: 0, minWidth: "390px" }}>
       <AnimatePresence>
-      <motion.section className="section-container scroll-section"  
+      <motion.section className="section-container scroll-section" 
+      
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -152,7 +138,8 @@ export default function Homepage() {
           <motion.div
             variants={textParentVariant}
             initial="hidden"
-            animate="visible"          
+            animate="visible"
+            
           >
             <motion.h1 style={{ fontSize: "2.8rem" }}  variants={textChildVariant}>Hello world, my name is</motion.h1>
             <motion.h1 style={styles.specialText} variants={textChildVariant} >Cledwyn</motion.h1>
@@ -205,7 +192,7 @@ export default function Homepage() {
         exit="exit"
         viewport={{ once: false, amount: 0.8 }}
         id="about"
-        className="section-container scroll-section"
+        className="section-container scroll1-section"
         style={{
           scrollMarginTop: "30px",
           position: "relative",
@@ -235,7 +222,7 @@ export default function Homepage() {
           style={{
             width: "100%",
             textAlign: "center",
-            paddingTop: "5%",
+            paddingTop: "10%",
           }}
         >
           <h1 style={styles.specialText2}>About Me</h1>
@@ -248,11 +235,9 @@ export default function Homepage() {
             style={{
               ...styles.containerCard1,
             }}
-            variants={parentVariant} // Apply parent variants
-            initial="hidden" // Parent initial state
-            animate="visible" // Parent animate state
+            initial="hidden"
           >
-            <motion.div className="card" style={{...styles.card}} variants={childVariant}>
+            <motion.div className="card" style={styles.card}>
               <div
                 className="card-body"
                 style={{ marginBottom: "50px", paddingTop: "40px" }}
@@ -276,7 +261,7 @@ export default function Homepage() {
                 </div>
               </div>
             </motion.div>
-            <motion.div className="card" style={styles.card} variants={childVariant}>
+            <motion.div className="card" style={styles.card}>
               <div
                 className="card-body"
                 style={{ marginBottom: "50px", paddingTop: "40px" }}
@@ -296,7 +281,7 @@ export default function Homepage() {
                 </div>
               </div>
             </motion.div>
-            <motion.div className="card" style={styles.card} variants={childVariant}>
+            <motion.div className="card" style={styles.card}>
               <div
                 className="card-body"
                 style={{ marginBottom: "50px", paddingTop: "40px" }}
