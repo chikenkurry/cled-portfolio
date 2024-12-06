@@ -101,11 +101,11 @@ export default function Homepage() {
   }, []);
 
   return (
-    <div style={{ width: "100%", padding: 0, margin: 0, minWidth: "390px", }}>
+    <div style={{ width: "100%", padding: 0, margin: 0, minWidth: "390px" }}>
       <div className="section-container">
         <div
           className="div-container"
-          style={{ minWidth: "300px", display: "flex", alignItems: "center", }}
+          style={{ minWidth: "300px", display: "flex", alignItems: "center" }}
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -178,7 +178,7 @@ export default function Homepage() {
             objectFit: "cover",
             zIndex: -1,
             filter: "brightness(0.8)",
-            pointerEvents: "none"
+            pointerEvents: "none",
           }}
         >
           <source src="./vid1.mp4" type="video/mp4" />
@@ -189,7 +189,6 @@ export default function Homepage() {
             width: "100%",
             textAlign: "center",
             paddingTop: "5%",
-            
           }}
         >
           <h1 style={styles.specialText2}>About Me</h1>
@@ -294,206 +293,248 @@ export default function Homepage() {
           style={{
             width: "100%",
             textAlign: "center",
-            paddingBottom:"30px",
-   
+            paddingBottom: "30px",
           }}
         >
           <h1 style={styles.specialText}>Working Experience</h1>
         </div>
         <div
           className="working-container"
-          style={{minWidth: "400px", display: "flex", alignItems: "center" }}
+          style={{ minWidth: "400px", display: "flex", alignItems: "center" }}
         >
           <motion.div
-          style={{
-            width:"100%",
-            height:"70%",
-            
-          }}
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
-        >
-          <div id="expContainer" className="container" style={{...styles.display}}>
-            <motion.div
-              className="card"
-              style={{...styles.cardContainer}}
-              onClick={() =>
-                handleCardClick(
-                  "As a retail associate at Nike, I provided top-tier customer service, assisting customers with product selection, offering personalized recommendations, and ensuring an exceptional in-store experience. I was responsible for maintaining an organized and visually appealing sales floor, handling transactions efficiently, and staying up-to-date with product knowledge to promote the latest merchandise. My role also included contributing to sales targets, managing stock, and fostering a positive, team-oriented environment to enhance customer satisfaction and loyalty.",
-                  "./nike2.jpg"
-                )
-              }
-            >
-              <img src="./nike.jpeg" style={styles.cardImg} />
-              <div className="layer"></div>
-              <div className="info" style={{ color: "white" }}>
-                <h3 className="heading">Nike</h3>
-                <h4 className="sub-head">Sales Associate</h4>
-                <h5 className="year">Mar 2023 - Sep 2023</h5>
-                <p></p>
-              </div>
-            </motion.div>
+            style={{
+              width: "100%",
+              height: "70%",
+            }}
+            variants={containerVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <div id="expContainer" style={{ ...styles.display }}>
+              <motion.div
+                className="card"
+                style={{ ...styles.cardContainer }}
+                onClick={() =>
+                  handleCardClick(
+                    "As a retail associate at Nike, I provided top-tier customer service, assisting customers with product selection, offering personalized recommendations, and ensuring an exceptional in-store experience. I was responsible for maintaining an organized and visually appealing sales floor, handling transactions efficiently, and staying up-to-date with product knowledge to promote the latest merchandise. My role also included contributing to sales targets, managing stock, and fostering a positive, team-oriented environment to enhance customer satisfaction and loyalty.",
+                    "./nike2.jpg"
+                  )
+                }
+              >
+                <img src="./nike.jpeg" style={styles.cardImg} />
+                <div className="layer"></div>
+                <div className="info" style={{ color: "white" }}>
+                  <h3 className="heading">Nike</h3>
+                  <h4 className="sub-head">Sales Associate</h4>
+                  <h5 className="year">Mar 2023 - Sep 2023</h5>
+                  <p></p>
+                </div>
+              </motion.div>
 
-            <motion.div
-              className="card"
-              style={{...styles.cardContainer, minHeight:"400px"}}
-              onClick={() =>
-                handleCardClick(
-                  "During the Artbox 2023 expo exhibition, I worked as a salesperson for Oatbedient, where I quickly adapted to the fast-paced environment and effectively engaged with visitors. My ability to grasp new information swiftly allowed me to confidently present our products and address customer inquiries. This not only enhanced the company’s visibility at the event but also earned me positive feedback from my manager, who appreciated my enthusiasm and quick learning ability. My performance contributed to a successful exhibition, showcasing my aptitude for sales and client interaction.",
-                  "./oat2.PNG"
-                )
-              }
-            >
-              <img src="./oat.jpeg" style={{...styles.cardImg}} />
-              <div className="layer"></div>
-              <div className="info" style={{ color: "white" }}>
-                <h3 className="heading">Oatbedient</h3>
-                <h4 className="sub-head">Promoter</h4>
-                <h5 className="year">Jan 2023 - Feb 2023</h5>
-                <p></p>
-              </div>
-            </motion.div>
+              <motion.div
+                className="card"
+                style={{ ...styles.cardContainer, minHeight: "400px" }}
+                onClick={() =>
+                  handleCardClick(
+                    "During the Artbox 2023 expo exhibition, I worked as a salesperson for Oatbedient, where I quickly adapted to the fast-paced environment and effectively engaged with visitors. My ability to grasp new information swiftly allowed me to confidently present our products and address customer inquiries. This not only enhanced the company’s visibility at the event but also earned me positive feedback from my manager, who appreciated my enthusiasm and quick learning ability. My performance contributed to a successful exhibition, showcasing my aptitude for sales and client interaction.",
+                    "./oat2.PNG"
+                  )
+                }
+              >
+                <img src="./oat.jpeg" style={{ ...styles.cardImg }} />
+                <div className="layer"></div>
+                <div className="info" style={{ color: "white" }}>
+                  <h3 className="heading">Oatbedient</h3>
+                  <h4 className="sub-head">Promoter</h4>
+                  <h5 className="year">Jan 2023 - Feb 2023</h5>
+                  <p></p>
+                </div>
+              </motion.div>
 
-            <motion.div
-              {...fadeIn}
-              className="card"
-              style={{...styles.cardContainer,}}
-              onClick={() =>
-                handleCardClick(
-                  "Led a platoon of 15 in executing various high-stakes missions, including the National Day Parade (NDP). Additionally, played a key role in managing the networking infrastructure, ensuring seamless connectivity between critical equipment, such as establishing and maintaining reliable connections between cameras and the server.",
-                  "./army2.jpg"
-                )
-              }
-            >
-              <img
-                src="./army.jpeg"
-                style={{ ...styles.cardImg, minHeight: "400px" }}
-              />
-              <div className="layer"></div>
-              <div className="info" style={{ color: "white" }}>
-                <h3 className="heading">15C4I, SAF</h3>
-                <h4 className="sub-head">Platoon Sergeant</h4>
-                <h5 className="year">Oct 2021 - Nov 2022</h5>
-                <p></p>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-
+              <motion.div
+                {...fadeIn}
+                className="card"
+                style={{ ...styles.cardContainer }}
+                onClick={() =>
+                  handleCardClick(
+                    "Led a platoon of 15 in executing various high-stakes missions, including the National Day Parade (NDP). Additionally, played a key role in managing the networking infrastructure, ensuring seamless connectivity between critical equipment, such as establishing and maintaining reliable connections between cameras and the server.",
+                    "./army2.jpg"
+                  )
+                }
+              >
+                <img
+                  src="./army.jpeg"
+                  style={{ ...styles.cardImg, minHeight: "400px" }}
+                />
+                <div className="layer"></div>
+                <div className="info" style={{ color: "white" }}>
+                  <h3 className="heading">15C4I, SAF</h3>
+                  <h4 className="sub-head">Platoon Sergeant</h4>
+                  <h5 className="year">Oct 2021 - Nov 2022</h5>
+                  <p></p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-        
       </section>
-      
+
       <section
         id="education"
         className="edu-section-container animated-background-star"
         style={{
           scrollMarginTop: "30px",
           position: "relative",
-          
         }}
       >
         <div class="stars">
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
         </div>
         <div
           style={{
             width: "100%",
             textAlign: "center",
-            paddingBottom:"30px",
-            paddingTop:"30px"
+            paddingBottom: "30px",
+            paddingTop: "30px",
           }}
         >
           <h1 style={styles.specialText3}>Education</h1>
         </div>
         <div
           className="edu-container"
-          style={{ minWidth: "400px", display: "flex", flexWrap:"wrap", padding:"5%", color:"white", justifyContent:"space-between",zIndex:"1"}}
+          style={{
+            minWidth: "400px",
+            display: "flex",
+            flexWrap: "wrap",
+            padding: "5%",
+            color: "white",
+            justifyContent: "space-between",
+            zIndex: "1",
+          }}
         >
-          <div style={{width:"40%",minWidth:"370px", display:"flex", alignItems:"center"}} >
-            <div style={{width:"40%", minWidth:"100px"}}>
-              <img src="./scis.png" style={{width:"100%", minWidth:"100px", borderRadius:"150px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "370px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "40%", minWidth: "100px" }}>
+              <img
+                src="./scis.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "150px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>Singapore Management University</h3>
               <h5>Computer Science (AI) </h5>
               <h6>Aug 2023 - Jun 2027</h6>
-              <a href="youtube.com"> hi</a>
-               
             </div>
           </div>
-          <div style={{width:"40%",minWidth:"370px", display:"flex", alignItems:"center"}} >
-            <div style={{width:"40%", minWidth:"100px"}}>
-              <img src="./CJC.png" style={{width:"90%", minWidth:"100px", borderRadius:"150px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "370px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "40%", minWidth: "100px" }}>
+              <img
+                src="./CJC.png"
+                style={{
+                  width: "90%",
+                  minWidth: "100px",
+                  borderRadius: "150px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>Catholic Junior College</h3>
-                <h5>Student</h5>
-                <h6>Jan 2019 - Dec 2020</h6>
+              <h5>Student</h5>
+              <h6>Jan 2019 - Dec 2020</h6>
             </div>
           </div>
-          <div style={{width:"40%",minWidth:"370px", display:"flex", alignItems:"center"}} >
-            <div style={{width:"40%", minWidth:"100px"}}>
-              <img src="./manjuju.png" style={{width:"100%", minWidth:"100px", borderRadius:"150px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "370px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "40%", minWidth: "100px" }}>
+              <img
+                src="./manjuju.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "150px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
-                <h3>Manjusri Secondary School</h3>
-                <h5>Student</h5>
-                <h6>Jan 2015 - Nov 2018</h6>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
+              <h3>Manjusri Secondary School</h3>
+              <h5>Student</h5>
+              <h6>Jan 2015 - Nov 2018</h6>
             </div>
           </div>
         </div>
-        
       </section>
       <section
         id="skills"
@@ -503,199 +544,569 @@ export default function Homepage() {
           position: "relative",
         }}
       >
-        <div class="snow" style={{backgroundColor: "rgba(0, 0, 0, 0.8)", zIndex:0}}></div>
+        <div
+          class="snow"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.8)", zIndex: 0 }}
+        ></div>
         <div
           style={{
             width: "100%",
             textAlign: "center",
-            paddingBottom:"30px",
-            zIndex:1,
+            paddingBottom: "30px",
+            zIndex: 1,
           }}
         >
           <h1 style={styles.specialText3}>Skills</h1>
         </div>
         <div
           className="edu-container"
-          style={{width:"100%", minWidth: "400px", display: "flex", flexWrap:"wrap", padding:"5%", color:"white", justifyContent:"space-evenly", gap:"20px", zIndex:10, backgroundColor: "rgba(0, 0, 0, 0.4)" }}
+          style={{
+            width: "100%",
+            minWidth: "400px",
+            display: "flex",
+            flexWrap: "wrap",
+            padding: "5%",
+            color: "white",
+            justifyContent: "space-evenly",
+            gap: "20px",
+            zIndex: 10,
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+          }}
         >
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./react.png" style={{width:"100%", minWidth:"100px", borderRadius:"50px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./react.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>React</h3>
-              <h5>Frontend Development with various frameworks (Vite, Next.js) </h5>
+              <h5>
+                Frontend Development with various frameworks (Vite, Next.js){" "}
+              </h5>
             </div>
           </div>
 
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./JavaScript-logo.png" style={{width:"100%", minWidth:"100px", borderRadius:"50px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./JavaScript-logo.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>JavaScript</h3>
-              <h5>Self-taught Java script programming for web app developments and fullstack</h5>  
+              <h5>
+                Self-taught Java script programming for web app developments and
+                fullstack
+              </h5>
             </div>
           </div>
 
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./mysql.png" style={{width:"100%", minWidth:"100px", borderRadius:"50px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./mysql.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>MySQL</h3>
-              <h5>Experienced in managing databases and creating an efficient and secure database</h5>  
+              <h5>
+                Experienced in managing databases and creating an efficient and
+                secure database
+              </h5>
             </div>
           </div>
 
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./spring.webp" style={{width:"100%", minWidth:"100px", borderRadius:"50px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./spring.webp"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>SpringBoot</h3>
-              <h5>Experienced in backend programming with SpringBoot and RESTful apis</h5>  
+              <h5>
+                Experienced in backend programming with SpringBoot and RESTful
+                apis
+              </h5>
             </div>
           </div>
 
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./java2.png" style={{width:"100%", minWidth:"100px", borderRadius:"30px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./java2.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "30px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>Java</h3>
-              <h5>Advanced Java knowledge in terms of OOP and backend development</h5>  
+              <h5>
+                Advanced Java knowledge in terms of OOP and backend development
+              </h5>
             </div>
           </div>
 
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./htmlcss.png" style={{width:"100%", minWidth:"100px", borderRadius:"50px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./htmlcss.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>HTML n CSS</h3>
-              <h5>Experience in Web developement with HTML and CSS and different libraries</h5>  
+              <h5>
+                Experience in Web developement with HTML and CSS and different
+                libraries
+              </h5>
             </div>
           </div>
 
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./c.png" style={{width:"100%", minWidth:"100px", borderRadius:"50px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./c.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>C</h3>
-              <h5>Basic C knowledge for OS programming</h5>  
+              <h5>Basic C knowledge for OS programming</h5>
             </div>
           </div>
-          <div style={{width:"40%",minWidth:"350px", height:"30%", display:"flex", alignItems:"center"}} >
-            <div style={{width:"30%", minWidth:"100px"}}>
-              <img src="./python.jpeg" style={{width:"100%", minWidth:"100px", borderRadius:"50px"}} />
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./python.jpeg"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
             </div>
-            <div style={{width:"90%", marginLeft:"5%"}}>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
               <h3>Python</h3>
-              <h5>Experienced using python for simple data analysis and training basic models</h5>  
+              <h5>
+                Experienced using python for simple data analysis and training
+                basic models
+              </h5>
             </div>
           </div>
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./figma.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
+            </div>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
+              <h3>Figma</h3>
+              <h5>
+                Intermediate level in designing UI/UX with Figma for web
+              </h5>
+            </div>
+          </div>
+          <div
+            style={{
+              width: "40%",
+              minWidth: "350px",
+              height: "30%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "30%", minWidth: "100px" }}>
+              <img
+                src="./jira.png"
+                style={{
+                  width: "100%",
+                  minWidth: "100px",
+                  borderRadius: "50px",
+                }}
+              />
+            </div>
+            <div style={{ width: "90%", marginLeft: "5%" }}>
+              <h3>Jira</h3>
+              <h5>
+                Experienced in project management and agile development with Jira
+              </h5>
+            </div>
+          </div>
+          
+          
         </div>
-        
       </section>
 
       <section
-        id="contact"
-        className="contact-section-container animated-black-background"
+        id="project"
+        className="project-section-container animated-black-background "
         ref={aboutRef}
       >
-
         <div
           style={{
             width: "100%",
             textAlign: "center",
             paddingTop: "5%",
-            marginBottom:"50px"
+            marginBottom: "50px",
+            height:"auto",
+      
           }}
         >
-          <h1 style={styles.specialText4}> Contact</h1>
+          <h1 style={{ ...styles.specialText3 }}> Projects</h1>
         </div>
-        <div style={{display:"flex", flexWrap:"wrap", width:"100%", minWidth:"400px"}}>
-          <div style={{ width:"50%", minWidth:"380px", display: "flex", alignItems: "center", }}>
-        
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
-            
+          <div style={{width:"100%", minWidth:"400px"}}>
+            <div className="specialDiv" style={{width:"100%", minWidth:"390px", marginBottom:"50px"}}>
+              <h3 style={{ ...styles.specialText3, fontSize:"2.5rem" }}> Upcoming Projects</h3>
+            </div>
+            <div style={{width:"100%",minWidth:"400px", display:"flex", justifyContent:"flex-start", gap:"50px", flexWrap:"wrap"}}>
+              <a target="_blank" href="https://www.maritimestudies.nus.edu.sg/maritime-hackathon-2025/" style={{width:"30%", minWidth:"390px"}}>
+              <motion.div
+                className="card"
+                style={{ ...styles.cardContainer,width:"100%",minHeight:"200px" }}
+                // onClick={() =>
+                //   handleCardClick(
+                //     "As a retail associate at Nike, I provided top-tier customer service, assisting customers with product selection, offering personalized recommendations, and ensuring an exceptional in-store experience. I was responsible for maintaining an organized and visually appealing sales floor, handling transactions efficiently, and staying up-to-date with product knowledge to promote the latest merchandise. My role also included contributing to sales targets, managing stock, and fostering a positive, team-oriented environment to enhance customer satisfaction and loyalty.",
+                //     "./nike2.jpg"
+                //   )
+                // }
               >
-                <h4 style={{ fontSize: "2rem", color: "white" }}>
-                  Want to know more about me?
-                </h4>
-                <h1 style={styles.specialText3}>
-                  Get in touch with me via these platforms!
-                </h1>
-                <div style={{ marginTop: "80px" }}>
-                  <a
-                    href="https://www.instagram.com/cledwyn__"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaInstagram style={{ color: "white" }} size={80} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/cledwyn-chan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ marginLeft: "5%" }}
-                  >
-                    <FaLinkedin style={{ color: "white" }} size={80} />
-                  </a>
-                  <a
-                    href="mailto:cledwynchan@gmail.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ marginLeft: "5%" }}
-                  >
-                    <MdEmail style={{ color: "white" }} size={80} />
-                  </a>
+                <img src="./hackathon25.png" style={{width: "100%", height: "100%", objectFit: "cover", position: "absolute", top: 0, left: 0  }} />
+                <div className="layer"></div>
+                <div className="info" style={{ color: "white" }}>
+                  
+                  <h3 className="heading">NUS CMS Maritime Hackathon</h3>
+                  <h4 className="sub-head">Participant</h4>
+                  <h5 className="year">17 Jan 2025 - 18 Jan 2025</h5>
+                  <p></p>
                 </div>
+              </motion.div>
+              </a>
+
+              <a target="_blank" href="https://www.accenture.com/sg-en/careers/local/university-innovation-challenge" style={{width:"30%", minWidth:"390px"}}>
+              <motion.div
+                className="card"
+                style={{ ...styles.cardContainer,width:"100%",minHeight:"200px" }}
+                // onClick={() =>
+                //   handleCardClick(
+                //     "As a retail associate at Nike, I provided top-tier customer service, assisting customers with product selection, offering personalized recommendations, and ensuring an exceptional in-store experience. I was responsible for maintaining an organized and visually appealing sales floor, handling transactions efficiently, and staying up-to-date with product knowledge to promote the latest merchandise. My role also included contributing to sales targets, managing stock, and fostering a positive, team-oriented environment to enhance customer satisfaction and loyalty.",
+                //     "./nike2.jpg"
+                //   )
+                // }
+              >
+                <img src="./accenture.png" style={{width: "100%", height: "100%", objectFit: "cover", position: "absolute", top: 0, left: 0 }} />
+                <div className="layer"></div>
+                <div className="info" style={{ color: "white" }}>
+                  
+                  <h3 className="heading">Accenture Innovation Challenge</h3>
+                  <h4 className="sub-head">Participant</h4>
+                  <h5 className="year">6 Jan 2025 - 17 Jan 2025</h5>
+                  <p></p>
+                </div>
+              </motion.div>
+              </a>
+            </div>
+            <div className="specialDiv" style={{width:"100%", minWidth:"390px", marginBottom:"50px", marginTop:"50px"}}>
+              <h3 style={{ ...styles.specialText3, fontSize:"2.5rem" }}> Completed Projects</h3>
+            </div>
+            <div style={{width:"100%",minWidth:"400px", display:"flex", justifyContent:"flex-start", gap:"50px", flexWrap:"wrap"}}>
+              <a target="_blank" href="https://github.com/cledwynchan2023/CS203_Proj" style={{width:"30%", minWidth:"390px"}}>
+              <motion.div
+                className="card"
+                style={{ ...styles.cardContainer,width:"100%",minHeight:"200px" }}
+                // onClick={() =>
+                //   handleCardClick(
+                //     "As a retail associate at Nike, I provided top-tier customer service, assisting customers with product selection, offering personalized recommendations, and ensuring an exceptional in-store experience. I was responsible for maintaining an organized and visually appealing sales floor, handling transactions efficiently, and staying up-to-date with product knowledge to promote the latest merchandise. My role also included contributing to sales targets, managing stock, and fostering a positive, team-oriented environment to enhance customer satisfaction and loyalty.",
+                //     "./nike2.jpg"
+                //   )
+                // }
+              >
+                <img src="./chess.png" style={{width: "100%", height: "100%", objectFit: "cover", position: "absolute", top: 0, left: 0  }} />
+                <div className="layer"></div>
+                <div className="info" style={{ color: "white" }}>
+                  
+                  <h3 className="heading">CS203 Full Stack Development</h3>
+                  <h4 className="sub-head">Chess Tournament Website</h4>
+                  <h5 className="year">Year 2 Sem 1</h5>
+                  <p></p>
+                </div>
+              </motion.div>
+              </a>
+
+              <a target="_blank" href="https://ellipsis.sis.smu.edu.sg/tech-series" style={{width:"30%", minWidth:"390px"}}>
+              <motion.div
+                className="card"
+                style={{ ...styles.cardContainer,width:"100%",minHeight:"200px" }}
+                // onClick={() =>
+                //   handleCardClick(
+                //     "As a retail associate at Nike, I provided top-tier customer service, assisting customers with product selection, offering personalized recommendations, and ensuring an exceptional in-store experience. I was responsible for maintaining an organized and visually appealing sales floor, handling transactions efficiently, and staying up-to-date with product knowledge to promote the latest merchandise. My role also included contributing to sales targets, managing stock, and fostering a positive, team-oriented environment to enhance customer satisfaction and loyalty.",
+                //     "./nike2.jpg"
+                //   )
+                // }
+              >
+                <img src="./techseries.png" style={{width: "100%", height: "100%", objectFit: "cover", position: "absolute", top: 0, left: 0 }} />
+                <div className="layer"></div>
+                <div className="info" style={{ color: "white" }}>
+                  
+                  <h3 className="heading">SMU Ellipsis Tech Series</h3>
+                  <h4 className="sub-head">Participant (Top 30)</h4>
+                  <h5 className="year">28 Sep 2024 - 2 Sep 2024</h5>
+                  <p></p>
+                </div>
+              </motion.div>
+              </a>
+            </div>
+
+          </div>
+        
+  
+      </section>
+
+      <section
+        id="contact"
+        className="contact-section-container skyanimation"
+        ref={aboutRef}
+      >
+        <div
+          style={{
+            width: "100%",
+            textAlign: "center",
+            paddingTop: "5%",
+            marginBottom: "50px",
+          }}
+        >
+          <h1 style={{ ...styles.specialText5 }}> Contact</h1>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            width: "100%",
+            minWidth: "400px",
+            padding: "5%",
+          }}
+        >
+          <div
+            style={{
+              width: "50%",
+              minWidth: "380px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2 }}
+            >
+              <h4 style={{ fontSize: "1.8rem", color: "white", fontWeight:"400" }}>
+                Want to know more about me?
+              </h4>
+              <h1 style={styles.specialText3}>
+                Get in touch with me via these platforms!
+              </h1>
+              <div style={{ marginTop: "80px" }}>
+                <a
+                  href="https://www.instagram.com/cledwyn__"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram style={{ color: "white" }} size={80} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/cledwyn-chan/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginLeft: "5%" }}
+                >
+                  <FaLinkedin style={{ color: "white" }} size={80} />
+                </a>
+                <a
+                  href="mailto:cledwynchan@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginLeft: "5%" }}
+                >
+                  <MdEmail style={{ color: "white" }} size={80} />
+                </a>
+              </div>
             </motion.div>
           </div>
           <div
-       style={{ width:"50%", minWidth: "380px", display: "flex", alignItems: "center",justifyContent:"center" }}
-     >
-       <motion.video
-           ref={videoRef}
-           muted={isMuted}
-           src={video3}
-           style={{
-             objectFit: "cover",
-             height: "500px",
-             width: "400px",
-             marginTop: "20px",
-             borderRadius: "30px",
-           }}
-           autoPlay
-           loop
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ duration: 2 }}
-           onClick={toggleMute}
-         ></motion.video>
-        
-
-     </div>
+            style={{
+              width: "50%",
+              minWidth: "380px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* <motion.video
+              ref={videoRef}
+              muted={isMuted}
+              src={video3}
+              style={{
+                objectFit: "cover",
+                height: "500px",
+                width: "80%",
+                minWidth:"400px",
+                marginTop: "20px",
+                borderRadius: "30px",
+              }}
+              autoPlay
+              loop
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2 }}
+              onClick={toggleMute}
+            ></motion.video> */}
+            <motion.img
+            src="./me22.jpeg"
+            className="img-fluid"
+            style={{
+              width: "70%",
+              minWidth:"400px",
+              height: "80%",
+              objectFit: "cover",
+              borderRadius: "50px",
+              marginBottom: "3%",
+            }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.7,
+              ease: [0, 0.71, 0.2, 1.01],
+              scale: {
+                type: "spring",
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.01,
+              },
+            }}
+          />
+          </div>
         </div>
-        
-        
       </section>
       <Modal
-        
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         content={modalContent}
       />
-       <footer className="footer" style={{textAlign:"center",height:"100px"}}>
-		<p>&copy; 2024 Cledwyn. All rights reserved.</p>
-		</footer>
-
+      <footer
+        className="footer"
+        style={{ textAlign: "center", height: "100px" }}
+      >
+        <p>&copy; 2024 Cledwyn. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
@@ -759,6 +1170,14 @@ const styles = {
     color: "transparent",
   },
 
+  specialText5: {
+    fontSize: "4rem",
+    backgroundImage: "url('./Bg2.jpeg')",
+    backgroundPosition: "top",
+    backgroundClip: "text",
+    color: "transparent",
+  },
+
   card: {
     width: "30%",
     minWidth: "350px",
@@ -781,7 +1200,6 @@ const styles = {
     scrollBarWidth: "none",
     width: "100%",
     height: "100%",
-
   },
 
   cardContainer: {
@@ -790,7 +1208,7 @@ const styles = {
     minWidth: "300px",
 
     minHeight: "300px",
-   
+
     borderRadius: " 35px",
     overflow: "hidden",
     position: "relative",

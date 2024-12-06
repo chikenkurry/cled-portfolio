@@ -27,6 +27,9 @@ export default function Navbar() {
               <a className="nav-link" href="#education">Education</a>
             </li>
             <li className="nav-item">
+              <a className="nav-link" href="#project">Projects</a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="#contact">Contact</a>
             </li>
           </ul>
